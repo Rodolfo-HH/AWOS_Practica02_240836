@@ -1,0 +1,110 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: 'Lato','sans-serif';
+    background: linear-gradient(180deg, #0b0f1a, #020412);
+    color: #e6e6e6;
+}
+
+/* Box sizing */
+*,*:before,*::after{
+    box-sizing: inherit;
+}
+
+header{
+    padding: 3rem 0;
+    border-bottom: 2px solid #fcee09;
+}
+
+header h1{
+    text-align: center;
+    color: #fcee09; /* Amarillo Cyberpunk */
+    font-size: 6rem;
+    text-shadow: 0 0 10px #09fc52;
+}
+
+header p{
+    color: #00ffff; /* Cian neón */
+    text-align: center;
+    font-size: 3.2rem;
+}
+
+header p a{
+    text-decoration: none;
+    color: #ff2a6d; /* Magenta neón */
+}
+
+header p a:hover{
+    text-shadow: 0 0 8px #ff2a6d;
+}
+
+.DOM{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.DOM h2{
+    color: #00ffff;
+    text-align: center;
+    text-shadow: 0 0 6px #00ffff;
+}
+
+.DOM nav a{
+    color: #fcee09;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.DOM nav a:hover{
+    color: #ff2a6d;
+    text-shadow: 0 0 6px #ff2a6d;
+}
+
+.DOM p{
+    color: #c9d1ff;
+    font-size: 20px;
+}
+
+.DOM #formulario{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.DOM #formulario input{
+    display: block;
+    width: 100%;
+    border: 2px solid #00ffff;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #0b0f1a;
+    color: #ffffff;
+}
+
+.DOM #formulario input::placeholder{
+    color: #7df9ff;
+}
+
+.alerta{
+    padding: 1rem;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.alerta.error{
+    background-color: #ff2a6d;
+    box-shadow: 0 0 10px #ff2a6d;
+}
+
+.alerta.exito{
+    background-color: #fcee09;
+    box-shadow: 0 0 10px #fcee09;
+}
