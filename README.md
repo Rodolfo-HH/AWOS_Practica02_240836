@@ -17,4 +17,4 @@ Esta practica sera desarrollada con estructura de ramales, para que el estudiant
 
 | No. | Descripción | Potenciador | Estatus |
 |---|---|---|---|
-| 1. | Declaración de variables | 1 | En Proceso |
+| 1. | Declaración de variables | 1 | Terminado |
