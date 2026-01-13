@@ -1,0 +1,139 @@
+/* ================================
+   RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+   VARIABLES – CYBERPUNK 2077
+================================ */
+:root {
+    --cp-yellow: #fcee09;   /* Amarillo Cyberpunk */
+    --cp-black: #0b0b0b;
+    --cp-dark: #111111;
+    --cp-gray: #9b9b9b;
+    --cp-white: #f5f5f5;
+    --cp-cyan: #00f0ff;
+
+    --shadow-hard: 0 20px 50px rgba(0, 0, 0, 0.8);
+    --transition: all 0.2s ease;
+}
+
+/* ================================
+   BODY – FONDO INDUSTRIAL
+================================ */
+body {
+    font-family: 'Rajdhani', 'Arial Narrow', sans-serif;
+    background:
+        linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+    color: var(--cp-white);
+    min-height: 100vh;
+    padding: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================
+   CONTENEDOR PRINCIPAL (UI CP2077)
+================================ */
+body > header {
+    background: var(--cp-dark);
+    padding: 50px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow-hard);
+    border-left: 6px solid var(--cp-yellow);
+    overflow: hidden;
+}
+
+/* Detalle diagonal superior */
+body > header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 200px;
+    height: 10px;
+    background: var(--cp-yellow);
+    transform: skewX(-45deg);
+}
+
+/* ================================
+   TÍTULO PRINCIPAL
+================================ */
+h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--cp-yellow);
+    margin-bottom: 35px;
+    position: relative;
+}
+
+/* Subrayado estilo HUD */
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 220px;
+    height: 4px;
+    background: var(--cp-yellow);
+}
+
+/* ================================
+   TEXTO GENERAL
+================================ */
+p {
+    font-size: 1.15rem;
+    color: var(--cp-gray);
+    margin-bottom: 22px;
+    line-height: 1.7;
+}
+
+/* Texto destacado */
+strong {
+    color: var(--cp-white);
+    font-weight: 600;
+}
+
+/* ================================
+   BLOQUES DE INFORMACIÓN (HUD)
+================================ */
+p:has(strong:first-child) {
+    background: #0e0e0e;
+    padding: 18px 22px;
+    border-left: 4px solid var(--cp-yellow);
+    color: var(--cp-white);
+    position: relative;
+}
+
+/* Línea técnica inferior */
+p:has(strong:first-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: var(--cp-cyan);
+    opacity: 0.6;
+}
+
+/* Docente */
+p:nth-of-type(2) {
+    border-left-color: var(--cp-cyan);
+}
+
+/* Estudiante */
+p:nth-of-type(3) {
+    border-left-color: var(--cp-yellow);
+    margin-top: 30px;
+}
