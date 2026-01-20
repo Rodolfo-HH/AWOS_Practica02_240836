@@ -22,3 +22,4 @@ Esta practica sera desarrollada con estructura de ramales, para que el estudiant
 |---|---|---|---|
 | 1. | Declaración de variables | 1 | Terminado |
 | 2. | Tipos de variables | 7 | Terminado |
+| 3. | Tipos de Funciones | 7 | Terminado |
