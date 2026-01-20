@@ -1,134 +1,182 @@
-// Establizacion de al barra zona de pruebas en el DevTools en el navegador
-
+//Estilización de la barra zona de pruebas en el DevTools en el navegador
+//const style_console = "color: green; font-size:16px; font-weight:bold;";
 console.log("%cEjercicio 03: Funciones ", style_console);
 
-// 1. Funciones proceduales, vacias, VOID, sin valor de retorno y sin parametros de entrada
+// FUNCIONES NOMBRADAS - NAMED FUNCTIONS
+// 1. Funciones procedurales, vacias, VOID, sin valor de retorno y sín parámetros de entrada
 
 function saludar()
 {
-    console.log("Bienvenido al Sistema de Bienes Raices");
+    console.log("Bienvenid@ al Sistema de Bienes Raíces");
 }
 
-console.warn("1. Funcion sin valor de retorno, sin parametros");
+console.warn("1. Funciones sin valor de retorno, sin parámetros");
 saludar();
 
-// 2. Funciones procedulares sin valor de retorno, pero que si reciven parametros es decir datos de entrada
+//2. Funciones procedurales sin valor de retorno , pero que si recibe parámetros es decir datos de entrada
 
 function saludar_usuario(username, gender)
 {
-    if(gender=="H")
-        console.log(`Bienvenido, ${username} al sistema de Bienes`)
-
-    else if(gender=="M")
-        console.log(`Bienvenida, ${username} al sistema de Bienes`)
-
+    if(gender === "H")
+        console.log(`Bienvenido, ${username} al Sistema de Bienes Raíces`);
+    else if(gender === "M")
+        console.log(`Bienvenida, ${username} al Sistema de Bienes Raíces`);
     else
-        console.log(`Bienvenid@, ${username} al sistema de Bienes`);
+        console.log(`Bienvenid@, ${username} al Sistema de Bienes Raíces`);
 }
 
-console.warn("2. Funcion sin valor de retorno, con parametros de entrada");
+console.warn("2. Funciones sin valor de retorno, con parámetros de entrada");
 saludar_usuario("Marco", "H");
-console.log("------------------------------------------------------")
+console.log("----------------------------------------------------");
 saludar_usuario("Patricia", "M");
-console.log("------------------------------------------------------")
+console.log("----------------------------------------------------");
 saludar_usuario("Guadalupe", null);
 
-// 3. Funciones que retornan un dato, pero que no reciben parametros
+//3. Funciones que retornan un dato , pero que no reciben parámetros
 
 function fechaActual()
 {
     const fecha = new Date();
-    const dias = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+    const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    const meses = ["Enero", "Febrero", "Marzo", "Abril","Mayo", "Junio", "Julio", "Agosto",
+  "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const fecha_formatoMX = `${dias[fecha.getDay()]}, ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}`;
 
-    const fecha_formatoMX = `${dias[fecha.getDay()]}, ${fecha.getDate()} de mes ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}`;
-    fecha_formatoMX;
+    return fecha_formatoMX;
 };
 
-console.log("3. Funciones que retornan un valor, pero que no tienen un parametro");
+console.warn("3. Funciones que retornan un valor, pero no tienen parámetros")
 let hoy = fechaActual();
-console.log(`Bienvenid@ al Sistema de Bienes Raices, hoy es: ${hoy}`);
-// Imprimiendo el valor y que tipo de dato es:
+console.log(`Bienvenid@ al Sistema de Bienes Raíces, hoy es: ${hoy}`);
+/* Imprimiendo el valor y que tipo de dato es:*/
 console.log(fechaActual);
 console.log(typeof(fechaActual));
 
-// 4. Funciones que retornan un valor y que reciben parametros de entrada
+// 4. Funciones que retornan un valor y que reciben parámetros de entrada
 
 function login(username, password)
 {
-    let userValidacion= false;
-    if(username==="admin" && password==="12345"){
-        userValidacion=true;
-        console.log("Bienvenido usuario admin");
-    }
+    let userValidation= false;
 
-    else if (username==="admin" && password!="12345"){
-        userValidacion=false;
-        console.log("Lo sentimos la contraseña es incorrecta");
+    if(username === "admin" && password === "12345"){
+        userValidation=true;
+        console.log("Bienvenido usuario admin!")
     }
-
-    else if (username!="admin" && password==="12345"){
-        userValidacion=false;
-        console.log("Lo sentimos el nombre de usuario es incorrecto")
-    }
-
-    else if (username!="admin" && password!="12345"){
-        userValidacion=false;
-        console.log("Por favor verifique el usuario y la contraseña")
-    }
-
-    return userValidacion;
+    else if (username === "admin" && password !== "12345"){
+        userValidation=false;
+           console.log("Lo sentimos la contraseña es incorrecta")
+        }
+    else if (username !== "admin" && password === "12345"){
+        userValidation=false;
+           console.log("Lo sentimos el nombre de usuario no existe")
+        }
+    else if (username !== "admin" && password !== "12345"){
+        userValidation=false;
+           console.log("Por favor verifica el nombre de usuario y la contraseña.")
+        }
+   return userValidation;
 }
 
-// Test 1: usuario y contraseña correctos
-console.log("Test 1 - usuario: admin, password: 12345");
+console.warn("4. Funciones que retornan un dato, pero también reciben parametros de entrada")
+var loginStatus;
+//Test 1  - Usuario y Contraseña correctos
+console.log("Test 1 -  usuario: admin , password: 12345");
 loginStatus= login("admin", "12345");
-console.log(`${loginStatus ? `El usuario admin se ha logeado satisfactoriamente` : `Hubo un error en el usuario login del usuario admin`
-    }`);
+console.log(`${loginStatus ? 'El usuario admin se ha logeado satisfactoriamente' : 'Hubo un error en el login del usuario admin'}`);
 
-// Test 2: usuario incorrecto y contraseña correcto
-console.log("Test 2 - usuario: administrador, password: 12345");
+//Test 2  - Usuario incorrecto, Contraseña correcta
+console.log("Test 2 -  usuario: administrador , password: 12345");
 loginStatus= login("administrador", "12345");
-console.log(`${loginStatus ? `El usuario admin se ha logeado satisfactoriamente` : `Hubo un error en el usuario login del usuario admin`
-    }`);
+console.log(`${loginStatus ? 'El usuario admin se ha logeado satisfactoriamente' : 'Hubo un error en el login del usuario admin'}`);
 
-// Test 3: usuario correcto y contraseña incorrecto
-console.log("Test 2 - usuario: admin, password: 1234567890");
+//Test 3  - Usuario correcto, Contraseña incorrecta
+console.log("Test 3 -  usuario: admin , password: 1234567890");
 loginStatus= login("admin", "1234567890");
-console.log(`${loginStatus ? `El usuario admin se ha logeado satisfactoriamente` : `Hubo un error en el usuario login del usuario admin`
-    }`);
+console.log(`${loginStatus ? 'El usuario admin se ha logeado satisfactoriamente' : 'Hubo un error en el login del usuario admin'}`);
 
-// Test 2: usuario y contraseña incorrecto
-console.log("Test 2 - usuario: administrador, password: 1234567890");
-loginStatus= login("administrador", "1234567890");
-console.log(`${loginStatus ? `El usuario admin se ha logeado satisfactoriamente` : `Hubo un error en el usuario login del usuario admin`
-    }`);
+//Test 4  - Usuario y Contraseña incorrectos
+console.log("Test 4 -  usuario: marcor , password: mipassword");
+loginStatus= login("marcor", "mipassword");
+console.log(`${loginStatus ? 'El usuario admin se ha logeado satisfactoriamente' : 'Hubo un error en el login del usuario admin'}`);
 
-/* FUNCIONES ANONIMAS, FUNCIONES FLECHA (ARROW), FUNCIONES LAMBA
-A diferncia de las funciones nombradas este tipo de funciones no suelen utilizarse en el codigo
-solo se ejecutan una sola vez, dando velocidad, individalidad y privacidad a los datos utilizados en el
-proceso.
-*/
 
-// 5. Funcion Anonima sin parametros
+// FUNCIONES ANÓNIMAS, FUNCIONES FLECHA (ARROW) , FUNCIONES LAMBDA 
+/* A diferencia de las funciones nombradas este tipo de fuciones no suelen ser reutilizadas en el código solo se ejecutan una sola vez, dando velocidad, individalidad y privacidad a los datos utilizados en el proceso*/
 
-isNewUser = function(){
+
+// 5. Función anónima sin parámetros (Versión Extendida)
+let lastLogin = new Date();
+
+const isNewUser = function () {
     const hoy = new Date();
-    
+
     return (
         lastLogin.getFullYear() === hoy.getFullYear() &&
-        lastLogin.getMonth() === hoy.getMonth() && 
+        lastLogin.getMonth() === hoy.getMonth() &&
         lastLogin.getDate() === hoy.getDate()
     );
 };
 
-console.warn("5. Funciones Anonimas sin parametros");
+console.warn("5. Funciones Anónimas, sin parámetros");
 
-console.log("Test 1 - Fecha de ultimo acceso es igual a la fecha de hoy ");
-console.log(`La fecha de ultimo acceso es: ${lastLogin}`);
-console.log(`El usuario logeado es: ${isNewUser()?"Nuevo Usuario":"Antiguo Usuario"}`);
+console.log("Test 1 - Fecha de ultimo acceso es igual a la fecha de hoy");
+console.log(`La fecha del último acceso es: ${lastLogin}`);
+console.log(`El usuario logeado es: ${isNewUser()?"Nuevo Usuario":"Usuario Antiguo"}`);
 
-console.log("Test 2 - Fecha de ultimo acceso es igual a la fecha de hoy ");
-console.log(`La fecha de ultimo acceso es: ${lastLogin}`);
-console.log(`El usuario logeado es: ${isNewUser()?"Nuevo Usuario":"Antiguo Usuario"}`);
+console.log("--------------------------------------------------");
+lastLogin= new Date("2025/12/31");
+console.log("Test 2 - Fecha de ultimo acceso es diferente a la fecha de hoy");
+console.log(`La fecha del último acceso es: ${lastLogin}`);
+console.log(`El usuario logeado es: ${isNewUser()?"Nuevo Usuario":"Usuario Antiguo"}`);
+
+// 6. Funciones Anónimas con Parámetros  (Versión Arrow o Lambda)
+
+const sumar =  (a, b) =>{
+    let resultado= a+b;
+    return resultado;
+}
+
+console.warn("6. Funciones Anónima con Parámetros")
+console.log(`El resultado de la suma de 15 + 83 es: ${sumar(15,83)}`);
+
+/* Cuando la función anónima tiene solo una línea de operación se puede usar una versión simplificada que no usa {} llaves , ni la palabra reservada (return) */
+
+const multiplicar = (a,b) => a*b;
+console.log(`El resultado de la multiplicación de 15 * 125 es: ${multiplicar(15,125)}`);
+
+
+//7. Funciones Callback (Regreso de Llamado)
+console.warn("7. Funciones Anónimas Callback (Respuesta)")
+const recoverPassword = function(email, callback)
+{
+
+    // Generamos el código a enviar al usuario.
+    const recoveryCode= Math.floor(100000 + Math.random()*900000)
+
+    console.log(`
+=======================================================================
+Solicitud de recuperación recibida
+Correo del usuario sollicitante: ${email}
+Generando Código de Recuperación...
+Código de Seguridad Generado: ${recoveryCode}
+Enviando el correo al usuario...
+Correo Enviado a : ${email}, con el código de seguridad: ${recoveryCode}
+=======================================================================`);
+
+
+// definiendo la respues del sistema
+const response ={
+    status: "OK",
+    message: "Código de recuperación enviado satisfactoriamente."
+};
+
+callback(response);
+};
+
+// Invocación de una función callback
+recoverPassword("marco@gmail.com", 
+    function(systemResponse){
+        console.log("Respuesta del sistema: ");
+        console.log(systemResponse.message);
+    });
